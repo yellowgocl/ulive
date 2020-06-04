@@ -1,0 +1,22 @@
+.container .col{
+    display: flex;
+    flex-direction: row;
+}
+.container .total .col{
+    justify-content: space-between;    
+}
+.container .info .action{
+    display: flex;
+    align-items: center;
+}
+.container .info .price{
+    flex: 1;
+}
+.container .goods, .container .total {
+    margin-top: 1px;
+}
+.container .title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,0 +1,6 @@
+
+<!--index.wxml-->
+<view class="container" id='app'>
+  <image wx:if="{{!!shareCard}}" class='shareCard' src='{{shareCard}}' mode='aspectFit' />
+</view>
+

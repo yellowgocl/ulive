@@ -1,0 +1,38 @@
+
+<view class="container bg">
+  <view class="footprint">
+    <view class="mt-3 day-item color-white" wx:for="{{footprintList}}" wx:key="{{index}}">
+      <view class="day-hd text--subhead text--color-2">{{item[0].add_time}}</view>
+      <view class="goods-view list p-2" >
+      <view class="card py-2 px-2" data-footprint="{{iitem}}" bindtouchstart="touchStart" bindtouchend="touchEnd" bindtap="deleteItem" wx:for="{{item}}"  wx:for-item="iitem" wx:key="{{iitem.id}}">
+          <image class="img" mode="aspectFill" src="{{iitem.list_pic_url}}"></image>
+          <view class="info py-1 ml-3">
+              <text class="text--body1 text-overflow--ellipsis text--color-1 text-overflow--ellipsis">{{iitem.name}}</text>
+              <text class="text--description pt-1 text--color-2 text-overflow--ellipsis">{{iitem.goods_brief||''}}</text>
+              <view class="desc">
+                  <view class="text--subhead text--color-primary">￥{{iitem.retail_price}}</view>
+              </view>
+          </view>
+      </view>
+    </view>
+    </view>
+  </view>
+</view>
+
+<!-- <view class="container bg">
+  <view class="footprint">
+    <view class="day-item text--subhead text--color-2" wx:for="{{footprintList}}" wx:key="{{index}}">
+      <view class="day-hd">{{item[0].add_time}}</view>
+      <view class="day-list">
+        <view class="item" data-footprint="{{iitem}}" bindtouchstart="touchStart" bindtouchend="touchEnd" bindtap="deleteItem" wx:for="{{item}}"  wx:for-item="iitem" wx:key="{{iitem.id}}">
+          <image class="img" src="{{iitem.list_pic_url}}"></image>
+          <view class="info">
+            <view class="name">{{iitem.name}}</view>
+            <view class="subtitle">{{iitem.goods_brief}}</view>
+            <view class="price">￥{{iitem.retail_price}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> -->

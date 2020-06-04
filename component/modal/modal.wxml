@@ -1,0 +1,10 @@
+<view class='modal {{"layout-"+layout}} {{visible?"visible":""}}}' wx:if='{{visible}}' catch:touchmove="onPervent">
+    <view class="mask" catch:tap="onClose"></view>
+    <view class='modal-card' style='width:{{width+"%"}}'>
+        <view class='modal-title px'>
+            <text class='text text--title text--color-1'>{{title}}</text>
+            <image class='close' catch:tap="onClose" src="/static/images/ic_close.png" mode="aspectFit" />
+        </view>
+        <slot />
+    </view>
+</view>

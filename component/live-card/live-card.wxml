@@ -1,0 +1,22 @@
+<view class='live-card' data-id='{{content.roomid}}' bind:tap='onClickCard'>
+    <view class='gallery-area' >
+        <image class="image color-shadow" mode="aspectFill" src="{{content.shareImg}}" />
+        <view class='goods-area'>
+            <view catch:tap="onClickGoods" class='goods-item' wx:for="{{content.goods}}" data-url='{{item.url || ""}}'>
+                <image class="goods-thumb color-shadow" mode='aspectFill' src="{{item.coverImg}}" />
+                <p class='goods-info text--color-white text--caption'>{{item.price ? (item.name) : '敬请期待'}}</p>
+            </view>
+        </view>
+    </view>
+    <text class='title text--title text--color-accent'>{{content.name}}</text>
+    <view class='info-area'>
+        <image mode='aspectFill' class="author color-shadow" src="{{content.anchorImg}}" />
+        <text class="author-name text--subhead text--color-2">{{content.anchorName}}</text>
+        <!-- <subscribe catch:tap='oncatch' room-id="{{content.roomid}}"></subscribe> -->
+        <button class='subscribe--live-player-subscribe__btn text--description1 subscribe-status-text text--color-white color-success mr-2' catch:tap="onShare">立即分享</button>
+        <subscribe wx:if='{{content.liveStatus == 102}}' catch:tap='oncatch' room-id="{{content.roomid}}"></subscribe>
+        <text class='subscribe--live-player-subscribe__btn text--description1 subscribe-status-text text--color-1 color-shadow--light' wx:elif='{{content.liveStatus == 103 || content.liveStatus == 107}}'>{{statusText}}</text>
+        <text class='subscribe--live-player-subscribe__btn text--description1 subscribe-status-text text--color-success color-shadow--light' wx:elif='{{content.liveStatus == 101}}'>{{statusText}}</text>
+        <text class='subscribe--live-player-subscribe__btn text--description1 subscribe-status-text text--color-error color-shadow--light' wx:elif='{{content.liveStatus == 105 || content.liveStatus == 106}}'>{{statusText}}</text>
+    </view>
+</view>

@@ -1,0 +1,54 @@
+<view class="container">
+  <view class="no-cart" wx:if="{{cartGoods.length <= 0}}">
+    <view class="c">
+      <view class="title-box">购物车空空如也～</view>
+      <view class="to-index-btn primary" bindtap="toIndexPage">去逛逛</view>
+    </view>
+  </view>
+  <view class='list color-white' wx:else>
+    <view class="top px-2 py-3">
+      <view class="l">
+        <view class="checkbox pl-1 pr-3" bindtap="checkedAll">
+            <!-- <view class="toggle {{checkedAllStatus ? 'primary' : 'bg'}}"></view> -->
+            <image mode='aspectFit' class="toggle" src="{{checkedAllStatus ? '/static/images/ic_checkbox_checked.png' : '/static/images/ic_checkbox_uncheck.png'}}"></image>
+          </view>
+        <!-- <view class="checkbox {{checkedAllStatus ? 'primary' : 'bg'}}" bindtap="checkedAll"></view> -->
+        <text class='text--body1 text--color-2'>勾选全部</text>
+      </view>
+      <image wx:if='{{!isEditCart}}' bindtap="editCart" class="edit r" src='/static/images/ic_cart_edit.png'></image>
+    </view>
+    <view class="goods-view list" >
+      <navigator hover-stop-propagation="{{isEditCart}}" class="card py-3 px-2" wx:for="{{cartGoods}}" wx:key="{{item.id}}" url="/pages/goods/goods?id={{item.goods_id}}">
+          <view class="checkbox pl-1 pr-3" catchtap="checkedItem" data-item-index="{{index}}">
+            <image mode='aspectFit' class="toggle" src="{{item.checked ? '/static/images/ic_checkbox_checked.png' : '/static/images/ic_checkbox_uncheck.png'}}" catchtap="checkedItem" data-item-index="{{index}}"></image>
+          </view>
+          <image catchtap="checkedItem" data-item-index="{{index}}" class="img" mode="aspectFill" src="{{item.list_pic_url}}"></image>
+          <view  class="info py-1 ml-3">
+              <text class="text--body1 text-overflow--ellipsis text--color-1">{{item.goods_name}}</text>
+              <text class="text--description pt-1 text--color-2">{{item.goods_specifition_name_value||''}}</text>
+              <view class="desc">
+                  <view wx:if='{{item.number>item.product_number}}' class="text--subhead text--color-2 text--content">库存不足, 只有{{item.product_number}} (件)</view>
+                  <view wx:elif='{{item.is_on_sale==1}}' class="text--subhead text--color-primary">￥{{item.retail_product_price}}</view>
+                  <view wx:else class="text--subhead text--color-2 text--content">{{'商品已下架'}}</view>
+                  <view class='quantity-controll' wx:if='{{isEditCart}}'>
+                    <view catchtap="addNumber" data-item-index="{{index}}" class='add text--title text--color-2 bg'>+</view>
+                    <view class='text--body1 text--color-0 px-3'>{{item.number}}</view>
+                    <view catchtap="cutNumber" data-item-index="{{index}}" class='sub text--title text--color-2 bg'>-</view>
+                  </view>
+                  <view wx:elif='{{!isEditCart && item.is_on_sale==1}}' class="quantity text--body1 text--color-2 mr-2">x{{item.number}}</view>
+              </view>
+          </view>
+      </navigator>
+    </view>
+  </view>
+  <view class="bottom color-white">
+    <view  class="l mx-3 {{isEditCart?'cancel':''}}">
+      <block wx:if='{{!isEditCart}}'>
+        <view class='price'><text class='text--subhead text--color-1 mr-1'>总价: </text><text class='text--subhead text--color-primary'>￥{{cartTotal.checkedGoodsAmount}}</text></view>
+        <text class='amount text--body2 text--color-1'>选中: {{cartTotal.checkedGoodsCount}} (个)</text>
+      </block>
+      <view wx:else bind:tap="editCart" class="text--subhead button transparent text--color-primry">完成</view>
+    </view>
+    <view bind:tap="onAction" class="r primary text--subhead text--color-white text-align-center">{{!isEditCart ? '马上付款' : '删除所选'}}</view>
+  </view>
+</view>

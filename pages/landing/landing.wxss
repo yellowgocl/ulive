@@ -1,0 +1,52 @@
+page  {
+    height: 100vh;
+  }
+.container.loading{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #B2E2F8;
+}
+.container.loading .robot image{
+    width: 141rpx;
+    height: 141rpx;
+}
+  
+.ripple image {
+    position: absolute;
+    top: -55rpx;
+    left: -55rpx;
+  }
+  .ripple {
+    margin: auto;
+    margin-top: 5rem;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    position:relative;
+    animation: ripple 3s linear infinite;
+  }
+  .ripple::before,
+  .ripple::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    border-radius: 50%;
+    animation: ripple 2s linear infinite 1s;
+  }
+  .ripple::before {
+    animation: ripple 3s linear infinite 2s;
+  }
+  @keyframes ripple {
+    0% {
+      box-shadow: 0 0 0 .7rem rgba(255,255,255, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 0 8rem rgba(255,255,255, 0);
+    }
+  }

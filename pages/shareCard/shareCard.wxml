@@ -1,0 +1,6 @@
+<view class="share-card py-3">
+    <image wx:if="{{!isLoading}}" class="card" mode="aspectFit" src="{{painterPath}}"></image>
+    <view wx:else class='card card-loading'><image class='loading-animate' src="/static/images/loading-animate.gif" mode="aspectFit" /></view>
+    <button bind:tap="saveImage" disabled="{{isLoading}}" class='text--subhead button primary {{isLoading?"disabled":""}}'>保存图片，识别二维码下载APP</button>
+    <painter class='painter' palette="{{painterData}}" bind:imgOK="onImgOK" bind:imgErr='onImgError' />
+</view>

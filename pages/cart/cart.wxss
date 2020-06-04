@@ -1,0 +1,149 @@
+page{
+    height: 100%;
+    background: white;
+}
+.container{    
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding-bottom: 97rpx;
+}
+
+.goods-view.list .card{
+    border-bottom: solid 1px #eee;
+}
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72rpx;
+    padding-top: 64rpx !important;
+    padding-bottom: 64rpx !important;
+    border-bottom: solid 1px #E6E8EA;
+}
+.top .l{
+    display: flex;
+}
+.top .r{
+    width: 72rpx;
+    height: 72rpx;
+}
+.goods-view.list .card .quantity-controll{
+    display: flex;
+    align-items: center;
+}
+.goods-view.list .card .quantity-controll .add, .goods-view.list .card .quantity-controll .sub{
+    width: 56rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    text-align: center;
+}
+.checkbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.checkbox .toggle{
+    width: 32rpx;
+    height: 32rpx;
+    /* border: solid 6rpx #E6E8EA;
+    border-radius: 50%;
+    background-color: #EAF7F7;
+    align-self: center;
+    
+    transition: all 0.1s ease-out; */
+}
+.navigator-hover{
+    background-color: transparent;
+    opacity: 1;
+}
+
+.bottom{
+    display: flex;
+    flex-direction: row;
+    height: 97rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: solid 1px #E6E8EA;
+}
+.bottom .l{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 4;
+    transition: all 0.2s ease-out;
+}
+.bottom .l.cancel{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.bottom .l .price{
+    display: flex;
+}
+.bottom .r{
+    flex: 2;
+    line-height: 97rpx;
+    transition: all 0.2s ease-out;
+}
+.bottom .r:active{
+    flex: 2;
+    transform: scale(0.95);
+}
+
+.no-cart{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.no-cart .c{
+    width: 100%;
+    height: auto;
+    margin-top: 200rpx;
+}
+
+.no-cart .c image{
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    width: 258rpx;
+    height: 258rpx;
+}
+
+.no-cart .c text{
+    margin: 0 auto;
+    display: block;
+    width: 258rpx;
+    height: 29rpx;
+    line-height: 29rpx;
+    text-align: center;
+    font-size: 29rpx;
+    color: #999;
+}
+
+.title-box{
+    width: 100%;
+    padding-top: 330rpx;
+    text-align: center;
+    font-size:28rpx;
+    color:#999;
+    background: url(https://platform-wxmall.oss-cn-beijing.aliyuncs.com/upload/20180727/15015039793f4e.png) no-repeat center 205rpx;
+    background-size: 100rpx auto;
+    margin-bottom: 50rpx;
+}
+.to-index-btn{
+    color:#fff;
+    background:#e64340;
+    border-radius:6px;
+    width:300rpx;
+    height: auto;
+    line-height: 70rpx;
+    text-align: center;
+    font-size:28rpx;
+    margin: 0 auto;
+    display: block;
+}

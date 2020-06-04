@@ -1,0 +1,46 @@
+.container .list {
+    height: 100vh;
+}
+.container .list .item{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1px;
+}
+.container .list .item .info{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+.container .list .item .action{
+    display: block;
+    text-align: right;
+}
+.container .list .item .action>button{
+    display: inline;
+}
+.container .list .item .info .l{
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+}
+.container .list .item .info .l .col{
+    display: flex;
+    flex-direction: row;
+}
+.container .list .item .info .l .col .content{
+    flex: 1;
+}
+.container .list .item .info .r{
+    flex: 1;
+    text-align: right;
+}
+.container .list .item .info .r .status{
+
+}
+
+.container .list .item .action>.text{
+    border: 1px solid rgba(255, 82, 149, 1);
+    border-radius: 6rpx;
+    padding-left: 40rpx;
+    padding-right: 40rpx;
+}

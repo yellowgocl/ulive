@@ -1,0 +1,45 @@
+<view class="container">
+    <view class="cate-nav">
+        <scroll-view scroll-x="true" class="cate-nav-body" style="width: 750rpx;" scroll-left="{{scrollLeft}}">
+            <view  wx:for="{{navList}}" class="item {{ id == item.id ? 'active' : ''}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchCate">
+                <view class="name">{{item.name}}</view>
+            </view>
+        </scroll-view>
+    </view>
+    <scroll-view scroll-y="true" bindscrolltolower="onReachBottom" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}};">
+
+    <view class="cate-item">
+        <view class="h">
+            <text class="name">{{currentCategory.name}}</text>
+            <text class="desc">{{currentCategory.front_name}}</text>
+        </view>
+        <view class="goods-view grid mt-2 px-2">
+            <navigator url="/pages/goods/goods?id={{item.id}}"  class="card mb-2 color-white border-radius-2" wx:for="{{goodsList}}" wx:for-item="item" wx:for-index="iindex" wx:key="{{item.id}}">
+                <image lazy-load="{{true}}" class='image' src="{{item.list_pic_url}}" mode='widthFix' />
+                <view class="info pt-1 pb-3 px-2">
+                    <text class='name ml-1 mb-1 text--body1 text--color-1 text-overflow--ellipsis'>{{item.name}}</text>
+                    <text class='price text-title text--color-primary'>￥{{item.retail_price}}</text>
+                </view>
+            </navigator>
+        </view>
+        <!-- <view class="b">
+            <navigator class="item {{(iindex + 1) % 2 == 0 ? 'item-b' : ''}}"   url="/pages/goods/goods?id={{iitem.id}}" wx:for="{{goodsList}}" wx:for-item="iitem" wx:for-index="iindex" >
+                <image class="img" src="{{iitem.list_pic_url}}" background-size="cover"></image>
+                <text class="name">{{iitem.name}}</text>
+                <text class="price">￥{{iitem.retail_price}}</text>
+            </navigator>
+        </view> -->
+    </view>
+
+  <view wx:if="{{goodsList.length>4}}" class="loadmore">
+      <block wx:if="{{nomore}}">
+        <text>{{nomoreText}}</text>
+      </block>
+      <block wx:else>
+        <text class="iconfont icon-loading loading" space="nbsp"></text>
+        <text> {{loadmoreText}}</text>
+      </block>
+    </view>
+
+    </scroll-view>
+</view>

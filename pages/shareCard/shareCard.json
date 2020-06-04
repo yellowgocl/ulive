@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "下载智伴优学APP",
+    "usingComponents": {
+        "painter":"/components/painter/painter"
+    }
+}

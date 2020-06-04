@@ -1,0 +1,99 @@
+page  {
+  height: 100vh;
+  background-color: white;
+}
+swiper{
+  height: calc(100vh);
+}
+.container .nodata{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 72rpx);
+  flex-direction: column;
+}
+.container .nodata image {
+  width: 286rpx;
+  margin-bottom: 20rpx;
+}
+
+.container.list {
+  display: block;
+}
+
+.container.loading{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #B2E2F8;
+}
+.container.loading .robot image{
+    width: 141rpx;
+    height: 141rpx;
+}
+
+.container.list .tabbar{
+  height: 72rpx;
+  background-color: white;
+  padding-top: 12rpx;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 0;
+}
+.container.list .tabbar .pad{
+  flex: 1;
+}
+.container.list .tabbar .item{
+  flex: 2;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  border-top-left-radius: 12rpx;
+  border-top-right-radius: 12rpx;
+  font-size: 28rpx;
+  transition: all 0.3s ease-out;
+}
+.container.list .tabbar .item:hover, .container.list .tabbar .item.active {
+  
+}
+
+.ripple image {
+  position: absolute;
+  top: -55rpx;
+  left: -55rpx;
+}
+.ripple {
+  margin: auto;
+  margin-top: 5rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  position:relative;
+  animation: ripple 3s linear infinite;
+}
+.ripple::before,
+.ripple::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  border-radius: 50%;
+  animation: ripple 2s linear infinite 1s;
+}
+.ripple::before {
+  animation: ripple 3s linear infinite 2s;
+}
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 .7rem rgba(255,255,255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 8rem rgba(255,255,255, 0);
+  }
+}

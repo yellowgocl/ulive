@@ -1,0 +1,26 @@
+
+<!--index.wxml-->
+<view class="container {{!inited?'loading':'list'}}">
+  <view class='robot' wx:if='{{!inited}}'>
+    <view class='ripple'><image src='/static/images/ic_robot.png'></image></view>
+  </view>
+  <!-- <view wx:else class='tabbar'>
+    <view class='pad'></view>
+    <text bindtap='onSwitchTab' data-index="0" class='item {{activeIndex == 0 ? "active text--color-primary" : "text--color-2"}}'>进行中</text>
+    <view class='pad'></view>
+    <text bindtap='onSwitchTab' data-index="1" class='item {{activeIndex == 1 ? "active text--color-primary" : "text--color-2"}}'>已结束</text>
+    <view class='pad'></view>
+  </view> -->
+  <swiper current="{{activeIndex}}" bindchange="onSwiperChange" indicator-dots="{{false}}" autoplay="{{false}}" duration="{{500}}">
+    <swiper-item>
+      <scroll-view style='height:100%;' scroll-y wx:if="{{activeList.length > 0}}">
+          <live-card bind:share='onShare' wx:for="{{activeList}}" wx:key='{{item}}' data-id='{{item.roomId}}' content='{{item}}'></live-card>
+      </scroll-view >
+      <view class='nodata' wx:else>
+        <image src='/static/images/ic_nodata.png' mode='widthFix' />
+        <text class='text--color-2 text--title'>暂无数据</text>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+<shareModal cache='{{false}}' shareOption='{{shareOption}}' visible='{{modalVisible}}'></shareModal>

@@ -1,0 +1,41 @@
+<view class="container">
+    <scroll-view class="list" scroll-y scroll-with-animation bindscrolltolower="onPullUp">
+        <view class="pad p-3 color-white"></view>
+        <navigator class='item p-3 color-white' url="../orderDetail/orderDetail?id={{item.id}}" wx:for="{{orderList}}" wx:key="{{item.id}}">
+            <view class="info">
+                <view class="l">
+                    <view class="col">
+                        <text class='title text--body2 text--color-2'>订单编号:</text>
+                        <view class="content text--body1 ml-2 text--color-1">{{item.order_sn}}</view> 
+                    </view>
+                    <view class="col mt-2">
+                        <text class='title text--body2 text--color-2'>实付金额:</text>
+                        <text class='content text--body1 ml-2 text--color-primary'>￥{{item.actual_price}}</text>
+                    </view>
+                </view>
+                <view class="r">
+                    <text wx:if='{{item.order_status == 0}}' class="status text--body1 text--color-error">{{item.order_status_text}}</text>
+                    <text wx:elif='{{item.order_status == 101}}' class="status text--body1 text--color-2">已取消</text>
+                    <text wx:elif='{{item.order_status == 102}}' class="status text--body1 text--color-2">已过期</text>
+                    <text wx:elif='{{item.order_status == 201}}' class="status text--body1 text--color-2">待发货</text>
+                    <text wx:elif='{{item.order_status == 300}}' class="status text--body1 text--color-2">已发货</text>
+                    <text wx:elif='{{item.order_status == 301}}' class="status text--body1 text--color-2">待收货</text>
+                    <text wx:elif='{{item.order_status == 401 || item.order_status == 402}}' class="status text--body1 text--color-2">退款</text>
+                </view>
+            </view>
+            <view class="action mt-2">
+                <button wx:if="{{item.handleOption.pay}}" class='color-primary py-1 px-3 text--subhead text--color-white' data-order-index="{{index}}"  catchtap="payOrder">去付款</button>
+                <text wx:else class='button secondary text--subhead'>查看</text>
+            </view>
+        </navigator>
+        <view wx:if="{{orderList.length>6}}" class="loadmore py-3 color-white text-align-center">
+            <block wx:if="{{nomore}}">
+                <text>{{nomoreText}}</text>
+            </block>
+            <block wx:else>
+                <text class="iconfont icon-loading loading" space="nbsp"></text>
+                <text> {{loadmoreText}}</text>
+            </block>
+            </view>
+    </scroll-view>
+</view>

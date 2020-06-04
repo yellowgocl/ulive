@@ -1,0 +1,5 @@
+<view class="container loading">
+    <view class='robot' wx:if='{{!inited}}'>
+        <view class='ripple'><image src='/static/images/ic_robot.png'></image></view>
+    </view>
+</view>

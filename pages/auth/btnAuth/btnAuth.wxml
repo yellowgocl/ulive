@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="page">
+    <view class='card'>
+        <view class='logo'><image src="/static/images/auth_logo.png" mode="aspectFit" /></view>
+        <view class='article'>
+            <view class='divider color-shadow'></view>
+            <text class="title text--title text--color-1 mb-3">智伴优选商城申请获得以下权限</text>
+            <text class="caption text--body1 text--color-2 mb-1">·获得您的公开信息(昵称、头像等)</text>
+            <text class="caption text--body1 text--color-2 mb-1">·获得您的手机号码 </text>
+        </view>
+        <view class='signature'><image src="/static/images/signature.png" mode="aspectFit" /></view>
+    </view>
+    <view class='main-action'>
+        <button wx:if="{{canIUse}}" open-type="getUserInfo" class="weui_btn weui_btn_primary" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+    </view>
+    <view class='modal {{isHiddenModal?"hidden":""}}'catch:touchmove='perventModalScroll'>
+        <view class='mask'></view>
+        <view class='card {{!isHiddenModal?"hidden":""}}'>
+            <view class='article'>
+                <text class="title text--title text--color-1 mb-3">智伴优选商城申请获得您的手机号</text>
+                <text class="caption text--body1 text--color-2 mb-1">·用于一键注册智伴产品</text>
+                <text class="caption text--body1 text--color-2 mb-1">·用于提供更好的服务体验</text>
+            </view>
+            <view class='confirm direction-v'>
+                <button wx:if='{{canIUsePhoneNumber}}' open-type="getPhoneNumber" class="weui_btn weui_btn_primary" bindgetphonenumber="bindGetPhoneNumber">授权获取手机号</button>
+            </view>
+        </view>
+    </view>
+</view>

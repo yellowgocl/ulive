@@ -1,0 +1,6 @@
+page{
+    --card-view-pad-:104rpx;
+    --content-top-: 128rpx;
+    height: 100vh;
+    background-color: #FCFFFF;
+}

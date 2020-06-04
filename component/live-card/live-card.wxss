@@ -1,0 +1,99 @@
+.live-card{
+    background-color: white;
+    padding: 12rpx;
+    padding-bottom: 32rpx;
+    margin-bottom: 20rpx;
+    overflow: hidden;
+}
+
+.live-card image{
+    width: auto;
+    height: auto;
+}
+
+.live-card .gallery-area{
+    display: flex;
+    margin-bottom: 24rpx;
+}
+.live-card .gallery-area .image{
+    flex: 1;
+    margin-right: 10rpx;
+    min-height: calc(179rpx * 2);
+}
+.live-card .gallery-area .goods-item {
+    width: 178rpx;
+    height: 178rpx;
+    transition: transform 0.1s ease-out;
+    position: relative;
+    margin-top: 8rpx;
+    margin-bottom: 8rpx;
+}
+.live-card .gallery-area .goods-item:first-child {
+    margin-top: 0rpx;
+}
+.live-card .gallery-area .goods-item:last-child {
+    margin-bottom: 0rpx;
+}
+.live-card .gallery-area .goods-info {
+    position: absolute;
+    top: calc(178rpx - 64rpx);
+    line-height: 64rpx;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+    text-align: center;
+    vertical-align: middle;
+}
+.live-caard .gallery-area .goods-info.nodata {
+    top: 0;
+}
+.live-card .gallery-area .goods-item:active {
+    transform: scale(0.95);
+}
+/* .live-card .gallery-area .goods-item:after {
+    content: '敬请期待';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+} */
+
+.live-card .gallery-area .goods-item.outofstock:after {
+    content: ''
+}
+
+.live-card .gallery-area .goods-item image {
+    width: 100%;
+    height: 100%;
+}
+
+.live-card .title {
+    margin-left: 24rpx;
+    margin-right: 24rpx;
+}
+
+.live-card .info-area{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12rpx;
+    margin-left: 24rpx;
+    margin-right: 24rpx;
+    align-items: center;
+}
+.live-card .info-area .author{
+    width: 44rpx;
+    height: 44rpx;
+    border-radius: 22rpx;
+    overflow: hidden;
+}
+.live-card .info-area .author-name{
+    flex: 1;
+    margin-left: 12rpx;
+}
+.subscribe-status-text {
+}

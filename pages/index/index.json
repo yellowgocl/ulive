@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "live-card": "../../component/live-card/live-card",
+        "shareModal": "../../component/shareModal/shareModal"
+    }
+}

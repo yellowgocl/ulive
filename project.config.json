@@ -1,0 +1,243 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"uglifyFileName": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"bundle": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.11.0",
+	"appid": "",
+	"projectname": "zib-ulive",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "选择优惠券",
+					"pathName": "pages/shopping/selCoupon/selCoupon",
+					"query": "isBuy=false"
+				},
+				{
+					"id": -1,
+					"name": "订单界面",
+					"pathName": "pages/shopping/checkout/checkout",
+					"query": "isBuy=true"
+				},
+				{
+					"id": -1,
+					"name": "我的优惠券",
+					"pathName": "pages/ucenter/coupon/coupon",
+					"query": "isBuy=true"
+				},
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "pages/ucenter/order/order",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "直接进入商品详情页",
+					"pathName": "pages/goods/goods",
+					"query": "id=1181021",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "扫描二维码进入首页带关系链10001的id",
+					"pathName": "pages/index/index",
+					"query": "contextId=10001",
+					"scene": 1011
+				},
+				{
+					"id": 7,
+					"name": "授权",
+					"pathName": "pages/auth/btnAuth/btnAuth",
+					"query": "contextId=10001",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/cart/cart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商城分类",
+					"pathName": "pages/catalog/catalog",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单列表",
+					"pathName": "pages/ucenter/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/ucenter/orderDetail/orderDetail",
+					"query": "id=56",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/ucenter/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的收藏",
+					"pathName": "pages/ucenter/collect/collect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新增地址",
+					"pathName": "pages/ucenter/addressAdd/addressAdd",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "地址管理",
+					"pathName": "pages/ucenter/address/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 16,
+					"name": "商品详细分类",
+					"pathName": "pages/category/category",
+					"query": "id=1036000",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索页",
+					"pathName": "pages/search/search",
+					"query": "id=1036000",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的足迹",
+					"pathName": "pages/ucenter/footprint/footprint",
+					"query": "id=1036000",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "shopping地址管理",
+					"pathName": "pages/shopping/address/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 20,
+					"name": "首页分流到直播房间",
+					"pathName": "pages/index/index",
+					"query": "live_id=15&context_id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "着陆页",
+					"pathName": "pages/landing/landing",
+					"query": "live_id=15&context_id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "着陆页分流到商品详情",
+					"pathName": "pages/landing/landing",
+					"query": "contextId=10001&goods_id=1181002",
+					"scene": null
+				},
+				{
+					"id": 22,
+					"name": "扫描小程序码带scene参数进入着陆页",
+					"pathName": "pages/landing/landing",
+					"query": "scene=c%3D33562755%2Cl%3D15",
+					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "支付成功页面",
+					"pathName": "pages/payResult/payResult",
+					"query": "orderId=25",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "引导下载app页面",
+					"pathName": "pages/shareCard/shareCard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "扫描小程序码在着陆页分流到直播房间",
+					"pathName": "pages/landing/landing",
+					"query": "scene=c%3D33562755%26l%3D20",
+					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "发圈",
+					"pathName": "pages/materials/materials",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

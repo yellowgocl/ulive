@@ -1,0 +1,16 @@
+{
+  "extends": ["taro", "airbnb"],
+  "rules": {
+    "no-unused-vars": ["error", { "varsIgnorePattern": "Taro" }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }]
+  },
+  "parser": "babel-eslint",
+  "globals": {
+    "USE_MOCK": "readonly",
+    "APP_KEY": "readonly",
+    "APP_ID": "readonly",
+    "DEVICE_ID": "readonly",
+    "DEVICE_TYPE": "readonly",
+    "SHOP_ID": "readonly"
+  }
+}

@@ -1,0 +1,20 @@
+<modal visible="{{visible}}" title="{{isShareTimeline?'分享到朋友圈':'分享给谁？'}}" layout='{{layout}}' catch:tap='onPervent' catch:close='onClose'>
+    <view class="share bg {{isShareTimeline?'hidden':''}}" wx:if='{{!isShareTimeline}}'>
+        <button class="btn" open-type='share' data-item="{{shareOption}}">
+            <image src="/static/images/ic_sharemodal_wechat.png" />
+            <text class="text text--subhead text--color-1 mt-3">分享给朋友</text>
+        </button>
+        <button class="btn" catch:tap="onShareTimeline">
+            <image src="/static/images/ic_sharemodal_timeline.png" />
+            <text class="text text--subhead text--color-1 mt-3">分享到朋友圈</text>
+        </button>
+    </view>
+    <view class="share-card py-3" wx:else>
+        <image wx:if="{{!isLoading}}" class="card" mode="aspectFit" src="{{painterPath}}"></image>
+        <view wx:else class='card card-loading'><image class='loading-animate' src="/static/images/loading-animate.gif" mode="aspectFit" /></view>
+        <button catch:tap="saveImage" disabled="{{isLoading}}" class='text--subhead button primary {{isLoading?"disabled":""}}'>保存图片</button>
+    </view>
+    <painter class='painter' palette="{{painterData}}" bind:imgOK="onImgOK" bind:imgErr='onImgError' />
+</modal>
+
+

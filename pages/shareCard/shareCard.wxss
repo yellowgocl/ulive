@@ -1,0 +1,33 @@
+.share-card{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+}
+.share-card .card{
+    margin-top: 20rpx;
+    width: 606rpx;
+    height:966rpx;
+    background-color: #F9F7F7;
+}
+.share-card .card-loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+.share-card .button{
+    position: fixed;
+    left: 10%;
+    bottom: 40rpx;
+    width: 80%;
+}
+
+.painter{
+    position: absolute;
+    left: 0;
+    top: -2000rpx;
+    z-index: -1000
+}

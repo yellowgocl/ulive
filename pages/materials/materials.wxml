@@ -1,0 +1,49 @@
+<view class="container">
+    <view class="{{searchMode==true?'head search-mode':'head'}}">
+        <picker wx:if='{{!searchMode}}' class='picker' mode="multiSelector" bind:cancel='onPickerCancel' bindcolumnchange='onPickerColumnChange' bindchange='onPickerChange' value='{{pickerValue}}' range='{{pickerData}}' range-key='name'>
+            <view class='title text--subhead text--color-2'>{{pickerText}}<image src="/static/images/ic-arrow-dropdown.png" mode="aspectFit" class='icon'/></view>
+        </picker>
+        <view wx:else bind:tap="onSwitchSearchMode" class='trigger-btn' hover-class='trigger-btn--active' ><image src="/static/images/ic_category.png" mode="aspectFit" class='icon'/></view>
+        <view wx:if='{{searchMode}}' class='picker'><input  class="title" value="{{keyword}}" bindinput="bindKeywordInput" placeholder="请输入需要搜索的关键字" auto-focus/><image bind:tap='onSearch' src="/static/images/ic_search.png" mode="aspectFit" class='search-icon'/></view>
+        <view wx:else bind:tap="onSwitchSearchMode" class='search-btn' hover-class='trigger-btn--active' ><image src="/static/images/ic_search.png" mode="aspectFit" class='icon'/></view>
+    </view>
+    <view class='pad py-2' />
+    <view class='conent'  wx:if='{{!searchListMode}}'>
+        <view class="card-view-wrapper">
+            <view class='card-view' wx:for="{{materialsData}}" wx:for-item="item" wx:key="{{item.title}}">
+                <view class='top mb-2'>
+                    <image class='avatar' src="{{item.icon}}" mode="aspectFill" />
+                    <text class='name text--subhead text--color-1'>{{item.title}}</text>
+                    <!-- <image class='share-button' src="/static/images/ic_share.png" mode="aspectFill" data-data="{{item}}" bind:tap="onGetContentAndMedia" /> -->
+                    <!-- <image class='icon' src="/static/images/ic_share.png" mode="aspectFit" /> -->
+                    <!-- <image class='icon' src="/static/images/ic_copy.png" mode="aspectFit" /> -->
+                    <button data-data='{{item}}' bind:tap='onSetClipboard' class='copy mr-1'><text class='text--description1 text--color-primary'>复制文案</text></button>
+                    <button wx-if='{{item.pics && item.pics.length > 0 || item.videos && item.videos.length > 0}}' data-data='{{item}}' bind:tap='onGetContentAndMedia' class='copy'><text class='text--description1 text--color-accent'>一键保存图文</text></button>
+                </view>
+                <view class="desc mb-2" wx-if='{{!!item.content && item.content.length > 0}}'>
+                    <import src="../../lib/wxParse/wxParse.wxml" />
+                    <!-- <template is="wxParse" data="{{wxParseData:content['item'+item.id].nodes}}" /> -->
+                    <text class='text--title text--regular' bindlongpress='onSetClipboard' data-data="{{item}}" selectable="{{true}}">{{item.content}}</text>
+                    <!-- <parser :html='{{item.content}}'></parser> -->
+                </view>
+                <!-- <view class='desc mb-2'>{{item.desc}}</view> -->
+                <view class="media-view mb-2 l-{{item.pics.length}}">
+                    <block wx:if='{{item.videos && item.videos.length > 0}}' >
+                        <video wx:for="{{item.videos}}" wx:for-item="mediaItem" id="{{item.id}}" autoplay="{{false}}" src='{{mediaItem}}' ></video>
+                    </block>
+                    <block wx:else >
+                        <image wx:for="{{item.pics}}" wx:for-item="mediaItem" bind:tap='onPreviewImage' mode="aspectFill" data-data='{{item}}' data-current='{{mediaItem}}' class="media-image" src="{{mediaItem}}" />
+                    </block>
+                    
+                </view>
+                <view class='bottom'>
+                    <text class='downloads text--body1 text--color-2'>下载量：{{item.downloadCount}}</text>
+                </view>
+            </view>
+        </view>
+        <view class='p-2 text-align-center text--subhead text--color-2'>没有更多数据了</view>
+    </view>
+    <view wx:else class='search-panel'>
+        <view class='p-2 text-align-center tips text--content text--color-2'>支持搜索素材的标题，副标题、标签名等的关键字。</view>
+    </view>
+</view>

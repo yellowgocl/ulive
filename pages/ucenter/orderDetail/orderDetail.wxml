@@ -1,0 +1,72 @@
+<view class="container">
+    <view class="info p-3 color-white">
+        <view class="col">
+            <text class='title text--title text--color-2'>下单时间:</text>
+            <text class="content text--title ml-2 text--color-1">{{orderInfo.add_time}}</text> 
+        </view>
+        <view class="col mt-2 mb-3">
+            <text class='title text--title text--color-2'>订单编号:</text>
+            <text class="content text--title ml-2 text--color-1">{{orderInfo.order_sn}}</text> 
+        </view>
+        <view class="action mt-3">
+            <text class="price text--color-primary text--subhead">订单金额: ￥{{orderInfo.actual_price}}</text>
+            <block wx:if="{{orderInfo.handleOption.pay}}">
+                <button bindtap="cancelOrder" class='button secondary text--subhead mr-3' data-order-index="{{index}}">取消订单</button>
+                <button bindtap="payOrder" class='button primary text--subhead' data-order-index="{{index}}">去付款</button>
+            </block>
+            <block wx:elif="{{orderInfo.handleOption.confirm}}">
+                <button bindtap="cancelOrder" class='button secondary text--subhead mr-3' data-order-index="{{index}}">取消订单</button>
+                <button bindtap="confirmOrder" class='button primary text--subhead' data-order-index="{{index}}">确认收货</button>
+            </block>
+            <block wx:elif='{{orderInfo.handleOption.buy}}'>
+
+            </block>
+            <block wx:else>
+                <button bindtap="cancelOrder" class='button secondary text--subhead' data-order-index="{{index}}">取消订单</button>
+            </block>
+        </view>
+    </view>
+    <view class="goods p-3 color-white">
+        <view class="title mb-3">
+            <text class="name text--title text--color-1">商品信息</text>
+            <text class="status text--body2 text--color-primary">{{orderInfo.order_status_text}}</text>
+        </view>
+        <view class="goods-view list px-2">
+            <view class="card py-3" wx:for="{{orderGoods}}" wx:key="{{item.id}}">
+                <image class="img" mode="aspectFill" src="{{item.list_pic_url}}"></image>
+                <view class="info py-1 ml-3">
+                    <text class="text--body1 text-overflow--ellipsis text--color-1">{{item.goods_name}}</text>
+                    <text class="text--description pt-1 text--color-2">{{item.goods_specifition_name_value||''}}</text>
+                    <view class="desc">
+                        <view class="text--subhead text--color-primary">￥{{item.retail_price}}</view>
+                        <view class="text--body1 text--color-2">x{{item.number}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="address p-3 color-white">
+        <view class="title mb-3">
+            <text class="name text--title text--color-1">收件信息</text>
+        </view>
+        <view class="px-2 text--body2 text--color-1">{{orderInfo.full_region + orderInfo.address}}</view>
+        <view class="t mt-1 px-2">
+            <text class="text--body2 text--color-1 mr-3">{{orderInfo.consignee}}</text>
+            <text class="text--body2 text--color-2">电话: {{orderInfo.mobile}}</text>
+        </view>
+    </view>
+    <view class="total p-3 color-white">
+        <view class="col mb-2 px-2">
+            <text class='title text--body2 text--color-1'>商品合计:</text>
+            <text class="content text--body1 ml-2 text--color-0">￥{{orderInfo.goods_price}}</text> 
+        </view>
+        <view class="col mb-2 px-2">
+            <text class='title text--body2 text--color-1'>运费:</text>
+            <text class="content text--body1 ml-2 text--color-0">￥{{orderInfo.freight_price}}</text> 
+        </view>
+        <view class="col px-2">
+            <text class='title text--body2 text--color-1'>订单总额:</text>
+            <text class="content text--body1 ml-2 text--color-0">￥{{orderInfo.actual_price}}</text> 
+        </view>
+    </view>
+</view>

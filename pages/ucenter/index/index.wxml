@@ -1,0 +1,44 @@
+<view class="container">
+  <!-- <image class="banner" src="http://images.cms.zhibankeji.com/app/dev/1586498569939.jpg" mode="widthFix"/> -->
+  <view class='top mt-2'>
+    <view class="flag">
+      <view class="content px-2 py-1">
+        <image class='icon mr-1' src="/static/images/ic_ucenter_crown_0.png" mode="aspectFit" />
+        <text class="text">{{level}}</text>
+      </view>
+    </view>
+    <button class="user-info mt-2" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+      <image class='avatar' src="{{ (userInfo && userInfo.avatarUrl) ? userInfo.avatarUrl : '/static/images/ic_mine_profile.png' }}" background-size="cover" />
+      <view class='info ml-3'>
+        <view class="name text--title text--color-1">{{ (userInfo && userInfo.nickName) ? userInfo.nickName : '您好，请先登录' }}</view>
+        <view class="invite text--body2 text--color-2">邀请人: {{inviteName}}</view>
+      </view>
+    </button>
+    <button bind:tap='onClickIncomeAndJunior' open-type="launchApp" wx:if='{{(userInfo && userInfo.avatarUrl)}}' class='chain primary border-radius-2'>
+      <view class="item">
+        <view class="text text--color-light">总收益</view>
+        <view class="text value text--color-white mt-2">￥{{incomeValue}}</view>
+      </view>
+      <view class="item">
+        <view class="text text--color-light">粉丝数</view>
+        <view class="text value text--color-white mt-2">{{juniorCount}}</view>
+      </view>
+    </button>
+  </view>
+  <view class="personal-entries menu m-box bg border-radius-2">
+    <block wx:for="{{menuData}}" wx:for-item="item" wx:key="{{item.name}}">
+      <navigator wx:if='{{!item.openType}}' class="item py-2 px-2" url="{{item.url}}">
+        <image class="l mr-2" mode="widthFix" src="{{item.icon}}"></image>
+        <text class="c">{{item.name}}</text>
+        <image class="r" mode="widthFix" src='/static/images/ic_chevon_r.png'></image>
+      </navigator>
+      <button wx:else open-type='{{item.openType}}' class="item py-2 px-2 transparent" wx:key="{{item.name}}" >
+        <image class="l mr-2" mode="widthFix" src="{{item.icon}}"></image>
+        <text class="c">{{item.name}}</text>
+        <image class="r" mode="widthFix" src='/static/images/ic_chevon_r.png'></image>
+      </button>
+    </block>
+  </view>
+  <!-- <button class="button ghost m-3 text--body1 text--color-1 color--color-1" binderror="launchAppError" open-type="launchApp">to app</button> -->
+  <button class="button ghost m-3 text--body1 text--color-1 color--color-1" bindtap="exitLogin">退出登录</button>
+</view>

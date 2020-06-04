@@ -1,0 +1,114 @@
+page{
+    height: 100vh;
+    background-color: white;
+}
+.container{
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+}
+.top {
+    height: auto;
+}
+.top .flag {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.top .flag .content{
+    display: flex;
+    background-color: rgba(248, 159, 54, 0.2);
+    align-items: center;
+    border-top-left-radius: 12rpx;
+    border-bottom-left-radius: 12rpx;
+}
+.top .flag .text{
+    color: rgb(248, 159, 54);
+}
+.top .flag .icon{
+    width: 18rpx;
+    height: 18rpx;
+}
+.top button{
+    background-color: transparent;
+}
+.user-info {
+	display: flex;
+    flex-direction: row;
+    padding-left: 74rpx;
+    padding-right: 74rpx;
+}
+.user-info .avatar {
+    width: 168rpx;
+    height: 168rpx;
+    border-radius: 50%;
+    border: solid 10rpx #eee;
+}
+.user-info .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+.user-info .info>view{
+    text-align: left;
+}
+.top .chain{
+    display: flex;
+    justify-content: space-between;
+    height: 162rpx;
+    align-items: center;
+    margin-left: 48rpx;
+    margin-right: 48rpx;
+    margin-top: 36rpx;
+}
+.top .chain .item{
+    flex: 1;
+}
+.top .chain .item>.text{
+    text-align: center;
+}
+.top .chain .item>.value{
+    font-size: 36rpx;
+    font-weight: bold;
+}
+
+.menu {
+    margin-left: 48rpx;
+    margin-right: 48rpx;
+    margin-top: 34rpx;
+}
+.menu .item {
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px #eee;
+}
+.menu .item.transparent{
+    background-color: transparent;
+}
+.menu .item:last-child {
+    border-bottom: none;
+}
+.menu .item .c{
+    flex: 1;
+    text-align: left;
+}
+.menu .item .l{
+    width: 54rpx;
+    height: 5a4rpx;
+}
+.menu .item .r{
+    width: 64rpx;
+    height: 64rpx;
+}
+
+.logout{
+    margin-top: 50rpx;
+    height: 101rpx;
+    width: 100%;
+    line-height: 101rpx;
+    text-align: center;
+    background: #fff;
+    
+    font-size: 30rpx;
+}

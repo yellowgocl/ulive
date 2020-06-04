@@ -1,0 +1,71 @@
+.share{
+    display: flex;
+    flex-direction: row;
+    padding-top:64rpx;
+    padding-bottom:64rpx;
+    width: 100%;
+    transition: all 0.2s ease-out;
+}
+.share.hidden{
+    opacity: 0;
+    transform: translateY(40rpx);
+}
+.share>button{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+}
+.share .btn>image{
+    width: 64rpx;
+    height: 64rpx;
+}
+.share-card{
+    display: flex;
+    flex-direction: column;
+    background-color: #F0F2F2;
+    width: 100%;
+    padding: 40rpx;
+    align-items: center;
+}
+.share-card .card{
+    width: 375rpx;
+    height:594rpx;
+    background-color: gray;
+}
+.share-card .card-loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+.share-card .button{
+    margin-top: 40rpx;
+    width: 80%;
+}
+
+.painter{
+    position: absolute;
+    left: 0;
+    top: -9999rpx;
+    z-index: -1000
+}
+
+.canvas-box{
+    width: 100%;
+    position: fixed;
+    z-index: -9999;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+.canvas-box .card{
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
